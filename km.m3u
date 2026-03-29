@@ -1,4 +1,8 @@
 #EXTM3U
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/QPP13X6/rtar.jpg" , روسيا اليوم
+https://rt-arb.rttv.com/live/rtarab/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://alhiwar.tv/wp-content/uploads/2021/11/HIWAR-LOGO_PNG.png" ,الحـــوار
+https://mn-nl.mncdn.com/alhiwar_live/smil:alhiwar.smil/chunklist.m3u8
 #EXTINF:-1 group-logo="https://raw.githubusercontent.com/sesukyole/img/main/Pikotv.png" tvg-logo="https://raw.githubusercontent.com/sesukyole/img/main/Pikotv.png" group-title="PIKOTV | Live", Musica Studio
 https://livestream.zazerconer.workers.dev/channel/UCNlU3oSU8UnJ_V9uMB-cPOg.m3u8
 #EXTINF:-1 group-logo="https://raw.githubusercontent.com/sesukyole/img/main/Pikotv.png" tvg-id="Aflam.sa" tvg-shift="3" tvg-logo="https://shahid.mbc.net/mediaObject/2023/AmrAhmed/Aug/thump_Aflam/original/thump_Aflam.jpg?width=297&version=1&type=webp" group-title="PIKOTV | Arabic", Aflam sa
@@ -356,6 +360,18 @@ https://linear417-gb-hls1-prd-ak.cdn.skycdp.com/100e/Content/HLS_001_1080_30/Liv
 #EXTINF:-1 tvg-logo="https://i.ibb.co/dPmZMqq/bbcn.png",BBC NEWS
 https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/pc_hd_abr_v2.m3u8
 
+#EXTINF:-1, Al Jazeera English
+http://e9f411eb.ottolok.net:80/iptv/YDFRWUQHUKMN2V/6133/index.m3u8
+#EXTINF:-1, Bien Drama hd
+http://e9f411eb.ottolok.net:80/iptv/YDFRWUQHUKMN2V/6137/index.m3u8
+#EXTINF:-1, Bien Series hd
+http://e9f411eb.ottolok.net:80/iptv/YDFRWUQHUKMN2V/6138/index.m3u8
+
+
+#EXTINF:-1, Bien movies 2 Action
+http://e9f411eb.ottolok.net:80/iptv/YDFRWUQHUKMN2V/6134/index.m3u8
+#EXTINF:-1, Bien movies 3 drama s'il te plaît
+http://e9f411eb.ottolok.net:80/iptv/YDFRWUQHUKMN2V/6135/index.m3u8
 #EXTINF:-1 group-title="Релакс" tvg-logo="https://i.imgur.com/gmrVKEC.jpg",Better Life Nature Channel [704x480]
 https://tgn.bozztv.com/betterlife/betternature/betternature/index.m3u8
 #EXTINF:-1 group-title="Релакс" tvg-logo="https://i.imgur.com/1VZZCZU.jpg",Fireplace 4k [3840x2160]
