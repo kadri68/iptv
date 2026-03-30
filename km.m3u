@@ -1,6 +1,30 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/QPP13X6/rtar.jpg" , روسيا اليوم
 https://rt-arb.rttv.com/live/rtarab/playlist.m3u8
+#EXTINF:-1 tvg-id="AlJazeeraArabe.nws" tvg-logo="https://i.ibb.co/884RcMF/aljazera.png" , الجزيرة الإخبارية
+https://live-hls-web-aja.getaj.net/AJA/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://i1.sndcdn.com/avatars-000163249127-onw500-t240x240.jpg" ,الجزيرة مباشر
+https://live-hls-web-ajm.getaj.net/AJM/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://i1.sndcdn.com/avatars-000163249127-onw500-t240x240.jpg" ,2الجزيرة مباشر
+https://newajm2.getaj.net/AJM2/index.m3u8
+#EXTINF:-1 tvg-id="AlArabiya.nws" tvg-logo="https://i.ibb.co/w7wk4p0/alarabiya.png" , العربية
+https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/sw6tV5W/alhadath.jpg" ,العربية الحدث
+https://av.alarabiya.net/alarabiapublish/alhadath.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://vid.alarabiya.net/images/2023/10/27/62f548e2-46ca-470b-93a9-c9f80deefef9/62f548e2-46ca-470b-93a9-c9f80deefef9_16x9_1200x676.jpg?width=1120&format=jpg" ,العربية Buisness
+https://live.alarabiya.net/alarabiapublish/aswaaq.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://www.cnbcarabia.com/_next/static/media/cnbc-logo-white.b6d7d504.svg" ,CNBC عربية
+https://cnbc-live.akamaized.net/cnbc/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/6P5CKrZ/asharq.png" , الشرق
+https://svs.itworkscdn.net/bloomberarlive/bloomberg.smil/playlist_dvr.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/qxJbQHP/alaraby.png" , العربي
+https://alarabyta.cdn.octivid.com/alaraby/smil:alaraby.stream.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://alqaheranews.net/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.6a2665e0.png&w=1200&q=75" , القاهرة الإخبارية
+https://bcovlive-a.akamaihd.net/d30cbb3350af4cb7a6e05b9eb1bfd850/eu-west-1/6057955906001/profile_0/chunklist.m3u8
+#EXTINF:-1,5 Minute Crafts Spanish (CL)
+https://amg02051-soulpublishing-amg02051c3-lg-cl-584.playouts.now.amagi.tv/playlist/amg02051-admecyltd-5minutecraftsspanish-lgcl/playlist.m3u8
+#EXTINF:-1,5 Minute Crafts Spanish (CL) Alt
+https://amg02051-soulpublishing-amg02051c18-lg-cl-553.playouts.now.amagi.tv/playlist/amg02051-admecyltd-5minutecraftsspanish-lgcl/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://alhiwar.tv/wp-content/uploads/2021/11/HIWAR-LOGO_PNG.png" ,الحـــوار
 https://mn-nl.mncdn.com/alhiwar_live/smil:alhiwar.smil/chunklist.m3u8
 #EXTINF:-1 group-logo="https://raw.githubusercontent.com/sesukyole/img/main/Pikotv.png" tvg-logo="https://raw.githubusercontent.com/sesukyole/img/main/Pikotv.png" group-title="PIKOTV | Live", Musica Studio
