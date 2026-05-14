@@ -1,193 +1,43 @@
 #EXTM3U
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Baraem
-https://w.shahidtv.net/22384631/61957661/512
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",JEEM TV
-https://w.shahidtv.net/22384631/61957661/62
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",5 minutes Kraft
+#EXTINF:-1 ,5 minutes Kraft
 https://bit.ly/3QLfTvi?profile=inspirationFreetv.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",TF1
+#EXTINF:-1 ,TF1
 https://raw.githubusercontent.com/mikekaprielian/rtnaodhor93n398/main/fr/videotf1.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 1
-https://w.shahidtv.net/22384631/61957661/2
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 2
-https://w.shahidtv.net/22384631/61957661/5
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 3
-https://w.shahidtv.net/22384631/61957661/8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 4
-https://w.shahidtv.net/22384631/61957661/11
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 5
-https://w.shahidtv.net/22384631/61957661/14
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 6
-https://w.shahidtv.net/22384631/61957661/17
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 7
-https://w.shahidtv.net/22384631/61957661/401
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 1 [480]
-https://w.shahidtv.net/22384631/61957661/329
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 1 [240]
-https://w.shahidtv.net/22384631/61957661/323
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 1 [720]
-https://w.shahidtv.net/22384631/61957661/332
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 2 [240]
-https://w.shahidtv.net/22384631/61957661/335
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 2 [360]
-https://w.shahidtv.net/22384631/61957661/338
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 2 [480]
-https://w.shahidtv.net/22384631/61957661/341
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 2 [720]
-https://w.shahidtv.net/22384631/61957661/344
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 2 [1080]
-https://w.shahidtv.net/22384631/61957661/413
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 1 [360]
-https://w.shahidtv.net/22384631/61957661/464
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 3 [240]
-https://w.shahidtv.net/22384631/61957661/623
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 3 [360]
-https://w.shahidtv.net/22384631/61957661/626
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 3 [480]
-https://w.shahidtv.net/22384631/61957661/629
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 3 [720]
-https://w.shahidtv.net/22384631/61957661/632
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 3 [1080]
-https://w.shahidtv.net/22384631/61957661/635
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Shahid Sports 1
-https://w.shahidtv.net/22384631/61957661/365
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Shahid Sports 2
-https://w.shahidtv.net/22384631/61957661/368
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Alrabiaa
-https://w.shahidtv.net/22384631/61957661/38
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",MBC 1
-https://w.shahidtv.net/22384631/61957661/20
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",MBC 2
-https://w.shahidtv.net/22384631/61957661/23
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",MBC 3
-https://w.shahidtv.net/22384631/61957661/26
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",mbc 5
+#EXTINF:-1 ,mbc 5
 https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-5/ee6b000cee0629411b666ab26cb13e9b/index.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",MBC Action
-https://w.shahidtv.net/22384631/61957661/29
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",MBC Masr
-https://w.shahidtv.net/22384631/61957661/32
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",MBC Masr 2
-https://w.shahidtv.net/22384631/61957661/35
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Thamanya 1 SD
-https://w.shahidtv.net/22384631/61957661/41
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Thamanya 2 SD
-https://w.shahidtv.net/22384631/61957661/359
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Thamanya 3 SD
-https://w.shahidtv.net/22384631/61957661/362
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",DMC
-https://w.shahidtv.net/22384631/61957661/44
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",DMC Drama
-https://w.shahidtv.net/22384631/61957661/47
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",ON Drama
-https://w.shahidtv.net/22384631/61957661/50
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",ON Sport 1
-https://w.shahidtv.net/22384631/61957661/53
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",ON Sport MAX
-https://w.shahidtv.net/22384631/61957661/56
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Rotana Cinema EG
-https://w.shahidtv.net/22384631/61957661/68
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Rotana Cinema KSA
-https://w.shahidtv.net/22384631/61957661/71
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Sada Elbalad
-https://w.shahidtv.net/22384631/61957661/74
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Sada Elbalad 2
-https://w.shahidtv.net/22384631/61957661/77
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Sada Elbalad Drama
-https://w.shahidtv.net/22384631/61957661/80
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Al Nahar
-https://w.shahidtv.net/22384631/61957661/59
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",AL Kass 2
-https://w.shahidtv.net/22384631/61957661/383
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",AL Kass 3
-https://w.shahidtv.net/22384631/61957661/386
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",AL Kass 4
-https://w.shahidtv.net/22384631/61957661/389
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",StarzPlay Sports 1
-https://w.shahidtv.net/22384631/61957661/392
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",StarzPlay Sports 2
-https://w.shahidtv.net/22384631/61957661/395
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",StarzPlay Sports 3
-https://w.shahidtv.net/22384631/61957661/398
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Cartoon Network
-https://w.shahidtv.net/22384631/61957661/83
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Rotana Kids
-https://w.shahidtv.net/22384631/61957661/65
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Karameesh
-https://w.shahidtv.net/22384631/61957661/518
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Taha
-https://w.shahidtv.net/22384631/61957661/521
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Toyor Al Janah
-https://w.shahidtv.net/22384631/61957661/515
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",beIN 1 [1080]
-https://w.shahidtv.net/22384631/61957661/404
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",AD Sport 1
-https://w.shahidtv.net/22384631/61957661/416
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",AD Sport 2
-https://w.shahidtv.net/22384631/61957661/419
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Sharjh Sport
-https://w.shahidtv.net/22384631/61957661/434
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Arriadya
-https://w.shahidtv.net/22384631/61957661/443
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",AL Kass 1
-https://w.shahidtv.net/22384631/61957661/380
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",On Sport Plus
-https://w.shahidtv.net/22384631/61957661/638
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",On Sport 1 [240p]
-https://w.shahidtv.net/22384631/61957661/575
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",On Sport 1 [360p]
-https://w.shahidtv.net/22384631/61957661/578
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",On Sport 1 [480p]
-https://w.shahidtv.net/22384631/61957661/581
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",On Sport 1 [720p]
-https://w.shahidtv.net/22384631/61957661/584
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",On Sport 1 [1080p]
-https://w.shahidtv.net/22384631/61957661/587
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Thamanya 1 HD
-https://w.shahidtv.net/22384631/61957661/590
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Thamanya 2 HD
-https://w.shahidtv.net/22384631/61957661/596
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Thamanya 3 HD
-https://w.shahidtv.net/22384631/61957661/602
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Thamanya 1 FHD
-https://w.shahidtv.net/22384631/61957661/593
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Thamanya 2 FHD
-https://w.shahidtv.net/22384631/61957661/599
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Thamanya 3 FHD
-https://w.shahidtv.net/22384631/61957661/605
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",MixONE
+#EXTINF:-1 ,MixONE
 https://ml-pull-hwc.myco.io/MixONE/hls/index.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",MixTV
+#EXTINF:-1 ,MixTV
 https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",national_geo_hls_nd
+#EXTINF:-1 ,national_geo_hls_nd
 https://admn-live-cdn-lb.starzplayarabia.com/out/v1/admn_tv_enc/national_geo/national_geo_hls_nd/index.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",fujairah live
+#EXTINF:-1 ,fujairah live
 https://live.kwikmotion.com/fujairahlive/fujairah.smil/playlist.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",mbc iraq
+#EXTINF:-1 ,mbc iraq
 https://shd-gcp-live.lg.mncdn.com/live/bitmovin-mbc-iraq/e38c44b1b43474e1c39cb5b90203691e/index.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",الشرقيه
+#EXTINF:-1 ,الشرقيه
 https://5d94523502c2d.streamlock.net/home/mystream/playlist.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",plus-drama
+#EXTINF:-1 ,plus-drama
 https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-plus-drama/e37251ec2aac8f6c98f75cd0fa37cd28/index.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)", روسيا اليوم
+#EXTINF:-1 , روسيا اليوم
 https://rt-arb.rttv.com/live/rtarab/playlist.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)", الجزيره الاخباريه
+#EXTINF:-1 , الجزيره الاخباريه
 https://live-hls-web-aja-fa.getaj.net/AJA/index.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",DW Arabia HD
+#EXTINF:-1 ,DW Arabia HD
 https://dwamdstream103.akamaized.net/hls/live/2015526/dwstream103/index.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)", الجزيره الوثائقيه
+#EXTINF:-1 , الجزيره الوثائقيه
 https://live-hls-web-ajd.getaj.net/AJD/index.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",travelxp
+#EXTINF:-1 ,travelxp
 https://travelxp-travelxp-1-eu.xiaomi.wurl.tv/playlist.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",Drone tv
+#EXTINF:-1 ,Drone tv
 https://bit.ly/47WEeEj?5407.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",documentary HD     الوثائقية
+#EXTINF:-1 ,documentary HD     الوثائقية
 https://svs.itworkscdn.net/asharqdocumentarylive/asharqdocumentary.smil/playlist.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)",discovery      ديسكوفري
+#EXTINF:-1 ,discovery      ديسكوفري
 https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)", الشرق الوثائقيه
+#EXTINF:-1 , الشرق الوثائقيه
 https://svs.itworkscdn.net/asharqdocumentarylive/asharqdocumentary.smil/playlist_dvr.m3u8
-#EXTINF:-1 group-title="Drama Category (w.shahidtv.net)", الشرق ديسكوفري
+#EXTINF:-1 , الشرق ديسكوفري
 https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8
 #EXTINF:-1,Iqraa tv1
 https://playlist.fasttvcdn.com/pl/dlkqw1ftuvuuzkcb4pxdcg/Iqraafasttv1/playlist.m3u8
