@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>IPTV Finder Pro - TV Mode</title>
+    <title>IPTV Finder Pro - Dual Mode</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* نفس الأنماط السابقة تماماً، لكن أضفنا بعض التحسينات */
         :root {
             --bg: #0b0f1c;
             --card: #151b2c;
@@ -24,7 +23,7 @@
         body {
             background: linear-gradient(135deg, var(--grad1) 0%, var(--grad2) 100%);
             color: var(--text);
-            height: 90vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -40,253 +39,74 @@
             z-index: 10;
             border-bottom: 2px solid var(--accent);
         }
-        header h1 {
-            color: var(--accent);
-            font-size: 24px;
-            margin: 0;
-            text-shadow: 0 0 10px var(--accent);
-        }
+        header h1 { color: var(--accent); font-size: 24px; margin: 0; text-shadow: 0 0 10px var(--accent); }
         .header-btns { display: flex; gap: 10px; }
         .header-btn {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid var(--border);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: 0.2s;
+            background: rgba(255,255,255,0.1); border: 1px solid var(--border); color: white;
+            padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 18px; transition: 0.2s;
         }
-        .header-btn:focus {
-            background: var(--focus-glow);
-            color: #000;
-            box-shadow: 0 0 15px var(--focus-glow);
-            outline: none;
-        }
+        .header-btn:focus { background: var(--focus-glow); color: #000; box-shadow: 0 0 15px var(--focus-glow); outline: none; }
+
         .main-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
         /* Dashboard */
-        #dashboardScreen {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            overflow-y: auto;
-            flex: 1;
-        }
-        .section-title {
-            font-size: 24px;
-            color: var(--accent2);
-            margin-bottom: 15px;
-            text-shadow: 0 0 8px var(--accent2);
-        }
-        .playlists-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
+        #dashboardScreen { display: flex; flex-direction: column; padding: 20px; overflow-y: auto; flex: 1; }
+        .section-title { font-size: 24px; color: var(--accent2); margin-bottom: 15px; text-shadow: 0 0 8px var(--accent2); }
+        .playlists-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; margin-bottom: 30px; }
         .playlist-card {
-            background: var(--card);
-            border: 2px solid var(--border);
-            border-radius: 16px;
-            padding: 20px;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 20px;
+            background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 20px;
+            cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 10px; font-size: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-        .playlist-card:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 20px var(--accent);
-            background: #1f2a44;
-            outline: none;
-        }
+        .playlist-card:focus { border-color: var(--accent); box-shadow: 0 0 20px var(--accent); background: #1f2a44; outline: none; }
         .playlist-card i { font-size: 28px; color: var(--accent); }
         .delete-btn { margin-left: auto; background: transparent; border: none; color: #f44336; font-size: 22px; cursor: pointer; }
         .add-playlist-box { display: flex; gap: 10px; margin-top: 15px; }
-        .add-playlist-box input {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            background: var(--card);
-            color: white;
-            font-size: 18px;
-        }
-        .btn {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-        }
+        .add-playlist-box input { flex: 1; padding: 12px; border: 2px solid var(--border); border-radius: 10px; background: var(--card); color: white; font-size: 18px; }
+        .btn { padding: 12px 20px; border: none; border-radius: 10px; font-size: 18px; cursor: pointer; font-weight: bold; transition: 0.2s; }
         .btn-primary { background: var(--accent); color: #000; }
         .btn:focus { outline: 3px solid white; box-shadow: 0 0 15px var(--accent); }
 
         /* Channels screen */
-        #channelsScreen {
-            display: none;
-            flex: 1;
-            flex-direction: column;
-            overflow: hidden;
-        }
+        #channelsScreen { display: none; flex: 1; flex-direction: column; overflow: hidden; }
         #channelsScreen.active { display: flex; }
-        .player-section {
-            flex: 1;
-            background: black;
-            display: flex;
-            flex-direction: column;
-            border-bottom: 3px solid var(--accent);
-            min-height: 0;
-        }
-        .player-wrapper {
-            flex: 1;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .player-section { flex: 1; background: black; display: flex; flex-direction: column; border-bottom: 3px solid var(--accent); min-height: 0; }
+        .player-wrapper { flex: 1; position: relative; display: flex; align-items: center; justify-content: center; }
         video { width: 100%; height: 100%; object-fit: contain; }
-        .player-status {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #ccc;
-            font-size: 24px;
-            z-index: 5;
-        }
-        .channel-info-bar {
-            background: var(--header);
-            padding: 10px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .player-status { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #ccc; font-size: 24px; z-index: 5; }
+        .channel-info-bar { background: var(--header); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; }
         .channel-info-bar h3 { font-size: 22px; color: var(--accent); }
-        .info-actions button {
-            background: var(--accent);
-            border: none;
-            color: black;
-            font-weight: bold;
-            padding: 8px 12px;
-            border-radius: 8px;
-            margin-left: 8px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .control-bar {
-            background: var(--card);
-            padding: 10px 15px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-            border-top: 2px solid var(--border);
-            z-index: 20;
-        }
-        .control-bar button, .control-bar select, .control-bar input {
-            padding: 10px 16px;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            background: var(--bg);
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .control-bar button:focus, .control-bar select:focus, .control-bar input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent);
-            outline: none;
-        }
+        .info-actions button { background: var(--accent); border: none; color: black; font-weight: bold; padding: 8px 12px; border-radius: 8px; margin-left: 8px; cursor: pointer; font-size: 16px; }
+        .control-bar { background: var(--card); padding: 10px 15px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; border-top: 2px solid var(--border); z-index: 20; }
+        .control-bar button, .control-bar select, .control-bar input { padding: 10px 16px; border: 2px solid var(--border); border-radius: 10px; background: var(--bg); color: white; font-size: 18px; cursor: pointer; }
+        .control-bar button:focus, .control-bar select:focus, .control-bar input:focus { border-color: var(--accent); box-shadow: 0 0 15px var(--accent); outline: none; }
 
-        /* القنوات المنسدلة */
-        .channels-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            display: none;
-            z-index: 100;
-            justify-content: center;
-            align-items: flex-end;
-        }
+        /* قائمة منسدلة */
+        .channels-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; z-index: 100; justify-content: center; align-items: flex-end; }
         .channels-overlay.active { display: flex; }
-        .channels-panel {
-            background: var(--card);
-            width: 100%;
-            max-height: 70vh;
-            border-radius: 20px 20px 0 0;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 -10px 30px black;
-            border: 2px solid var(--border);
-            border-bottom: none;
-        }
-        .panel-header {
-            padding: 15px;
-            background: var(--header);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .channels-panel { background: var(--card); width: 100%; max-height: 70vh; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 -10px 30px black; border: 2px solid var(--border); border-bottom: none; }
+        .panel-header { padding: 15px; background: var(--header); display: flex; justify-content: space-between; align-items: center; }
         .panel-header h2 { color: var(--accent); font-size: 24px; }
         .close-btn { background: transparent; border: none; color: white; font-size: 32px; cursor: pointer; }
         .channels-list { flex: 1; overflow-y: auto; padding: 5px 0; }
-        .channel-row {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid var(--border);
-            cursor: pointer;
-            font-size: 20px;
-            transition: 0.1s;
-            user-select: none;
-        }
-        .channel-row:focus {
-            background: var(--accent) !important;
-            color: black !important;
-            outline: none;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
-        }
+        .channel-row { display: flex; align-items: center; padding: 15px; border-bottom: 1px solid var(--border); cursor: pointer; font-size: 20px; user-select: none; }
+        .channel-row:focus { background: var(--accent) !important; color: black !important; outline: none; box-shadow: inset 0 0 20px rgba(0,0,0,0.3); }
         .channel-row img { width: 60px; height: 45px; object-fit: contain; background: black; border-radius: 6px; margin-left: 15px; }
         .channel-info { flex: 1; display: flex; align-items: center; gap: 10px; }
         .external-icon { color: var(--accent2); font-size: 22px; cursor: pointer; padding: 5px; }
         .fav-btn { background: transparent; border: none; font-size: 24px; cursor: pointer; margin-left: 5px; }
 
         /* مودال */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); display: none; z-index: 200;
-            justify-content: center; align-items: center;
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; z-index: 200; justify-content: center; align-items: center; }
         .modal-overlay.active { display: flex; }
-        .modal-content {
-            background: var(--card); border-radius: 20px; padding: 25px;
-            width: 90%; max-width: 450px; border: 2px solid var(--accent);
-            box-shadow: 0 0 40px var(--accent);
-        }
+        .modal-content { background: var(--card); border-radius: 20px; padding: 25px; width: 90%; max-width: 450px; border: 2px solid var(--accent); box-shadow: 0 0 40px var(--accent); }
         .modal-content h3 { color: var(--accent); text-align: center; font-size: 26px; margin-bottom: 20px; }
-        .option-btn {
-            display: flex; align-items: center; gap: 12px; padding: 15px;
-            background: var(--bg); border: 2px solid var(--border); border-radius: 12px;
-            margin-bottom: 10px; cursor: pointer; font-size: 20px; width: 100%; color: white;
-        }
-        .cancel-btn {
-            display: block; width: 100%; margin-top: 15px; padding: 12px;
-            background: transparent; border: 2px solid var(--border);
-            color: white; border-radius: 12px; font-size: 20px; cursor: pointer; text-align: center;
-        }
-        footer {
-            background: var(--header); padding: 8px; text-align: center;
-            border-top: 2px solid var(--border); font-size: 14px; color: #aaa;
-        }
+        .option-btn { display: flex; align-items: center; gap: 12px; padding: 15px; background: var(--bg); border: 2px solid var(--border); border-radius: 12px; margin-bottom: 10px; cursor: pointer; font-size: 20px; width: 100%; color: white; }
+        .option-btn:focus { border-color: var(--accent2); background: var(--accent2); color: black; }
+        .cancel-btn { display: block; width: 100%; margin-top: 15px; padding: 12px; background: transparent; border: 2px solid var(--border); color: white; border-radius: 12px; font-size: 20px; cursor: pointer; text-align: center; }
+        footer { background: var(--header); padding: 8px; text-align: center; border-top: 2px solid var(--border); font-size: 14px; color: #aaa; }
+
+        /* الوضع الفاتح */
         body.light-mode {
             --bg: #f5f7ff; --card: #ffffff; --header: #e0e5f0; --text: #0b0f1c;
             --border: #c0c5d0; --grad1: #e8ecf5; --grad2: #cfd5e8;
@@ -296,9 +116,10 @@
 <body>
 
 <header>
-    <h1>📺 IPTV Pro | TV Mode</h1>
+    <h1>📺 IPTV Pro | <span id="modeLabel">تلفاز</span></h1>
     <div class="header-btns">
         <button class="header-btn" id="backToDashboardBtn" onclick="goToDashboard()" style="display:none;">🏠 القوائم</button>
+        <button class="header-btn" id="switchModeBtn" onclick="toggleDeviceMode()">📱 ⇄ 📺</button>
         <button class="header-btn" id="themeBtn" onclick="toggleTheme()">🌓</button>
     </div>
 </header>
@@ -314,14 +135,14 @@
         </div>
         <input type="file" id="dashboardFileInput" accept=".m3u,.m3u8" style="display:none;">
         <div style="margin-top:20px;">
-            <p style="color:var(--accent2); margin-bottom:10px;">مصادر جاهزة (اضغط للتحميل مباشرة):</p>
+            <p style="color:var(--accent2); margin-bottom:10px;">مصادر جاهزة:</p>
             <div style="display:flex; gap:10px; flex-wrap:wrap;" id="presetSources"></div>
         </div>
     </div>
 
     <div id="channelsScreen">
         <div class="player-section">
-            <div class="player-wrapper">
+            <div class="player-wrapper" id="playerWrapper">
                 <video id="videoPlayer" controls></video>
                 <div class="player-status" id="playerStatus">اختر قناة للبدء</div>
             </div>
@@ -337,9 +158,7 @@
         </div>
         <div class="control-bar">
             <button onclick="toggleChannelsPanel()">📺 القنوات</button>
-            <select id="categoryFilter" onchange="applyFilters()">
-                <option value="all">كل التصنيفات</option>
-            </select>
+            <select id="categoryFilter" onchange="applyFilters()"><option value="all">كل التصنيفات</option></select>
             <input type="text" id="searchInput" placeholder="🔍 بحث...">
             <button onclick="showFavorites()">⭐ المفضلة</button>
             <button onclick="resetAndShowAll()">🔄 الكل</button>
@@ -358,14 +177,14 @@
 </div>
 
 <div class="modal-overlay" id="playerModal">
-    <div class="modal-content">
+    <div class="modal-content" id="playerModalContent">
         <h3>🎬 تشغيل خارجي</h3>
-        <button class="option-btn" id="externalPlayerBtn"><i class="fa fa-external-link-alt"></i> فتح بتطبيق فيديو</button>
-        <button class="option-btn" id="copyLinkBtnModal"><i class="fa fa-copy"></i> نسخ الرابط</button>
+        <button class="option-btn" id="externalPlayerBtn" tabindex="0"><i class="fa fa-external-link-alt"></i> فتح بتطبيق فيديو</button>
+        <button class="option-btn" id="copyLinkBtnModal" tabindex="0"><i class="fa fa-copy"></i> نسخ الرابط</button>
         <label style="display:flex; align-items:center; gap:10px; color:white; font-size:18px; margin:10px 0;">
             <input type="checkbox" id="alwaysExternalCheck"> استخدم التطبيق الخارجي دائماً
         </label>
-        <button class="cancel-btn" onclick="closeModal()">إلغاء</button>
+        <button class="cancel-btn" tabindex="0" onclick="closeModal()">إلغاء</button>
     </div>
 </div>
 
@@ -373,7 +192,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
-    // ---- البيانات ----
+    // ---- الإعدادات العامة ----
+    let isTVMode = localStorage.getItem("deviceMode") === "tv" || (window.innerWidth > 1024 && !localStorage.getItem("deviceMode"));
+    document.getElementById("modeLabel").textContent = isTVMode ? "تلفاز" : "هاتف";
+
     const presetSources = [
         { id: 'ishak', name: 'Ishak', url: 'https://raw.githubusercontent.com/kadri68/-/refs/heads/main/ishak.m3u' },
         { id: 'k2', name: 'K2', url: 'https://raw.githubusercontent.com/kadri68/-/refs/heads/main/k2.m3u' },
@@ -394,7 +216,21 @@
     let currentFilterCategory = 'all';
     let longPressTimer = null;
 
-    // ---- العرض الرئيسي ----
+    // ---- تبديل الوضع (تلفاز/هاتف) ----
+    function toggleDeviceMode() {
+        isTVMode = !isTVMode;
+        localStorage.setItem("deviceMode", isTVMode ? "tv" : "phone");
+        document.getElementById("modeLabel").textContent = isTVMode ? "تلفاز" : "هاتف";
+        // إعادة ضبط خيار المشغل الخارجي
+        if (isTVMode) {
+            useExternalPlayer = true; // في وضع التلفاز اجعل VLC الافتراضي
+            document.getElementById("resetPlayerChoiceBtn").style.display = "none";
+        } else {
+            useExternalPlayer = localStorage.getItem("useExternalPlayer") === "true";
+        }
+    }
+
+    // ---- دوال العرض ----
     function renderDashboard() {
         const grid = document.getElementById("playlistsGrid");
         grid.innerHTML = playlists.map((p, idx) => `
@@ -414,7 +250,6 @@
     async function loadPresetSource(id) {
         const src = presetSources.find(s => s.id === id);
         if (!src) return;
-        // إنشاء قائمة مؤقتة باسم المصدر
         const newPlaylist = { name: src.name, url: src.url, content: null };
         playlists.push(newPlaylist);
         const idx = playlists.length - 1;
@@ -460,7 +295,6 @@
         reader.readAsText(file);
     });
 
-    // ---- تحميل قائمة ----
     async function loadPlaylist(idx) {
         if (idx < 0 || idx >= playlists.length) return;
         activePlaylistIndex = idx;
@@ -476,7 +310,6 @@
         } else if (pl.url) {
             const success = await fetchCustomSource(pl.url);
             if (success) {
-                // حفظ المحتوى إلى القائمة لتحميل أسرع لاحقاً
                 const savedContent = localStorage.getItem("saved_m3u_content");
                 if (savedContent) {
                     playlists[idx].content = savedContent;
@@ -487,16 +320,15 @@
                 statusEl.textContent = "فشل التحميل";
             }
         } else {
-            document.getElementById("channelsContainer").innerHTML = "<div style='padding:30px;text-align:center;'>لا يوجد محتوى. استخدم زر 'إعادة تحميل' بعد إضافة رابط.</div>";
+            document.getElementById("channelsContainer").innerHTML = "<div style='padding:30px;text-align:center;'>لا يوجد محتوى.</div>";
         }
     }
 
     function reloadCurrentPlaylist() {
         if (activePlaylistIndex >= 0) {
-            // إجبار إعادة التحميل من الرابط
             const pl = playlists[activePlaylistIndex];
             if (pl.url) {
-                pl.content = null; // حذف المحتوى المخزن لإعادة الجلب
+                pl.content = null;
                 localStorage.setItem("playlists", JSON.stringify(playlists));
             }
             loadPlaylist(activePlaylistIndex);
@@ -598,25 +430,21 @@
             row.innerHTML = `
                 <img src="${ch.logo || 'https://via.placeholder.com/150x100?text=TV'}" onerror="this.src='https://via.placeholder.com/150x100?text=TV'">
                 <div class="channel-info"><span>${ch.name}</span></div>
-                <i class="fa fa-external-link-alt external-icon" title="تشغيل خارجي" onclick="event.stopPropagation(); showPlayerModal('${ch.url.replace(/'/g, "\\'")}', '${ch.name.replace(/'/g, "\\'")}')"></i>
+                <i class="fa fa-external-link-alt external-icon" title="تشغيل خارجي" onclick="event.stopPropagation(); handleExternalPlay('${ch.url.replace(/'/g, "\\'")}', '${ch.name.replace(/'/g, "\\'")}')"></i>
                 <button class="fav-btn" style="color:${isFav ? '#f59e0b' : 'gray'};" onclick="event.stopPropagation(); toggleFavorite('${ch.url.replace(/'/g, "\\'")}', '${ch.name.replace(/'/g, "\\'")}', this)">★</button>
             `;
 
-            row.addEventListener("click", () => {
-                if (useExternalPlayer) openExternalPlayer(ch.url, ch.name);
-                else playChannel(ch.url, ch.name);
-            });
-
+            row.addEventListener("click", () => selectChannel(ch.url, ch.name));
             row.addEventListener("keydown", (e) => {
                 if (e.key === "Enter") {
+                    e.preventDefault();
                     if (!longPressTimer) {
                         longPressTimer = setTimeout(() => {
                             longPressTimer = null;
-                            showPlayerModal(ch.url, ch.name);
+                            handleExternalPlay(ch.url, ch.name);
                         }, 600);
                     }
-                }
-                if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
                     e.preventDefault();
                     const rows = [...container.querySelectorAll(".channel-row")];
                     const idx = rows.indexOf(row);
@@ -631,8 +459,7 @@
                 if (e.key === "Enter" && longPressTimer) {
                     clearTimeout(longPressTimer);
                     longPressTimer = null;
-                    if (useExternalPlayer) openExternalPlayer(ch.url, ch.name);
-                    else playChannel(ch.url, ch.name);
+                    selectChannel(ch.url, ch.name);
                 }
             });
 
@@ -641,11 +468,29 @@
         document.getElementById("workingStats").textContent = data.length;
     }
 
+    function selectChannel(url, name) {
+        if (isTVMode || useExternalPlayer) {
+            openExternalPlayer(url, name);
+        } else {
+            playChannel(url, name);
+        }
+        // إغلاق قائمة القنوات بعد الاختيار
+        document.getElementById("channelsOverlay").classList.remove("active");
+    }
+
+    function handleExternalPlay(url, name) {
+        if (isTVMode) {
+            openVLC(url, name);
+        } else {
+            showPlayerModal(url, name);
+        }
+    }
+
     function playChannel(url, name) {
         currentChannelUrl = url;
         document.getElementById("currentChannelName").textContent = name;
         document.getElementById("copyLinkBtn").style.display = "inline-block";
-        document.getElementById("resetPlayerChoiceBtn").style.display = useExternalPlayer ? "inline-block" : "none";
+        document.getElementById("resetPlayerChoiceBtn").style.display = (!isTVMode && useExternalPlayer) ? "inline-block" : "none";
         statusEl.style.display = "block";
         statusEl.textContent = "جارٍ تشغيل " + name + "...";
         video.style.display = "block";
@@ -666,42 +511,71 @@
         video.onerror = () => statusEl.textContent = "❌ فشل البث";
     }
 
-    function buildVideoIntent(url) {
+    function buildVideoIntent(url, pkg = null) {
         try {
             const u = new URL(url);
-            return `intent://${u.host}${u.pathname}${u.search}${u.hash}#Intent;scheme=${u.protocol.replace(':','')};type=video/*;end;`;
+            const base = `intent://${u.host}${u.pathname}${u.search}${u.hash}#Intent;scheme=${u.protocol.replace(':','')};type=video/*`;
+            return pkg ? `${base};package=${pkg};end;` : `${base};end;`;
         } catch (e) {
             return url;
         }
     }
 
+    function openVLC(url, name) {
+        if (name) document.getElementById("currentChannelName").textContent = name;
+        const intentUrl = buildVideoIntent(url, "org.videolan.vlc");
+        try { window.location.href = intentUrl; } catch (e) { window.open(url, "_blank"); }
+        closeModal();
+    }
+
     function openExternalPlayer(url, name) {
         if (name) document.getElementById("currentChannelName").textContent = name;
-        const intentUrl = buildVideoIntent(url);
+        const intentUrl = isTVMode ? buildVideoIntent(url, "org.videolan.vlc") : buildVideoIntent(url);
         try { window.location.href = intentUrl; } catch (e) { window.open(url, "_blank"); }
         closeModal();
     }
 
     let modalUrl = "";
     function showPlayerModal(url, name) {
+        if (isTVMode) {
+            openVLC(url, name);
+            return;
+        }
         modalUrl = url;
         document.getElementById("playerModal").classList.add("active");
         document.getElementById("alwaysExternalCheck").checked = useExternalPlayer;
+        // تركيز الزر الأول للمودال
+        setTimeout(() => document.getElementById("externalPlayerBtn").focus(), 100);
     }
     function closeModal() { document.getElementById("playerModal").classList.remove("active"); }
 
-    document.getElementById("externalPlayerBtn").onclick = () => {
+    document.getElementById("externalPlayerBtn").addEventListener("click", () => {
         if (document.getElementById("alwaysExternalCheck").checked) {
             localStorage.setItem("useExternalPlayer", "true");
             useExternalPlayer = true;
             document.getElementById("resetPlayerChoiceBtn").style.display = "inline-block";
         }
         openExternalPlayer(modalUrl);
-    };
-    document.getElementById("copyLinkBtnModal").onclick = () => {
+    });
+    document.getElementById("copyLinkBtnModal").addEventListener("click", () => {
         navigator.clipboard.writeText(modalUrl).then(() => alert("تم النسخ!"));
         closeModal();
-    };
+    });
+
+    // التنقل داخل المودال باستخدام الريموت
+    document.getElementById("playerModalContent").addEventListener("keydown", (e) => {
+        const focusable = [...document.querySelectorAll("#playerModalContent [tabindex]")];
+        const idx = focusable.indexOf(document.activeElement);
+        if (e.key === "ArrowDown") {
+            e.preventDefault();
+            const next = (idx + 1) % focusable.length;
+            focusable[next].focus();
+        } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            const prev = (idx - 1 + focusable.length) % focusable.length;
+            focusable[prev].focus();
+        }
+    });
 
     function resetPlayerChoice() {
         localStorage.removeItem("useExternalPlayer");
@@ -734,9 +608,32 @@
     }
     function toggleChannelsPanel() {
         document.getElementById("channelsOverlay").classList.toggle("active");
+        if (document.getElementById("channelsOverlay").classList.contains("active")) {
+            const firstRow = document.querySelector(".channel-row");
+            if (firstRow) firstRow.focus();
+        }
     }
     document.getElementById("channelsOverlay").addEventListener("click", function(e) {
         if (e.target === this) toggleChannelsPanel();
+    });
+
+    // ---- التحكم العام بالريموت: أثناء المشاهدة، الضغط على OK يظهر القائمة ----
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && document.getElementById("channelsScreen").classList.contains("active")) {
+            // إذا كانت القائمة غير ظاهرة وكان المشغل يعمل، أظهرها
+            const overlay = document.getElementById("channelsOverlay");
+            if (!overlay.classList.contains("active") && video.src && !video.paused) {
+                e.preventDefault();
+                toggleChannelsPanel();
+            }
+        }
+    });
+
+    // منع المشغل من اعتراض مفاتيح الريموت
+    video.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === "ArrowUp" || e.key === "ArrowDown") {
+            e.preventDefault();
+        }
     });
 
     function toggleTheme() {
@@ -751,7 +648,8 @@
 
     window.onload = () => {
         renderDashboard();
-        if (useExternalPlayer) document.getElementById("resetPlayerChoiceBtn").style.display = "inline-block";
+        if (!isTVMode && useExternalPlayer) document.getElementById("resetPlayerChoiceBtn").style.display = "inline-block";
+        if (isTVMode) useExternalPlayer = true; // تأكيد وضع VLC
         const firstCard = document.querySelector(".playlist-card");
         if (firstCard) firstCard.focus();
     };
