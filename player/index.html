@@ -54,7 +54,6 @@
         #channelsScreen { display: none; flex: 1; flex-direction: column; overflow: hidden; }
         #channelsScreen.active { display: flex; }
 
-        /* شريط الأدوات العلوي */
         .toolbar {
             display: flex;
             gap: 8px;
@@ -90,7 +89,6 @@
             min-width: 160px;
         }
 
-        /* تخطيط التلفاز */
         .tv-layout {
             display: flex;
             flex: 1;
@@ -127,7 +125,6 @@
             font-size: 16px;
         }
 
-        /* القائمة الجانبية */
         .sidebar {
             width: var(--sidebar-width);
             background: var(--card);
@@ -173,7 +170,6 @@
         .external-icon { color: var(--accent2); font-size: 18px; cursor: pointer; padding: 4px; }
         .fav-btn { background: transparent; border: none; font-size: 20px; cursor: pointer; margin-left: 4px; }
 
-        /* مودال المساعدة والمشغلات */
         .modal-overlay {
             position: fixed; top:0; left:0; width:100%; height:100%;
             background: rgba(0,0,0,0.9); display:none; z-index:200;
@@ -191,7 +187,6 @@
             border-top: 2px solid var(--border); font-size: 12px; color: #aaa; flex-shrink: 0;
         }
 
-        /* الوضع الفاتح */
         body.light-mode {
             --bg: #f5f7ff; --card: #ffffff; --header: #e0e5f0; --text: #0b0f1c;
             --border: #c0c5d0; --grad1: #e8ecf5; --grad2: #cfd5e8;
@@ -215,7 +210,6 @@
 </header>
 
 <div style="flex:1; display:flex; flex-direction:column; overflow:hidden;">
-    <!-- شاشة المدير -->
     <div id="dashboardScreen">
         <div style="font-size:24px; color:var(--accent2); margin-bottom:15px;">📋 قوائم التشغيل المحفوظة</div>
         <div id="playlistsGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:15px;"></div>
@@ -226,12 +220,11 @@
         </div>
         <input type="file" id="dashboardFileInput" accept=".m3u,.m3u8" style="display:none;">
         <div style="margin-top:20px;">
-            <p style="color:var(--accent2);">مصادر جاهزة:</p>
+            <p style="color:var(--accent2);">اختر  قائمة تشغيل :</p>
             <div style="display:flex; gap:10px; flex-wrap:wrap;" id="presetSources"></div>
         </div>
     </div>
 
-    <!-- شاشة القنوات -->
     <div id="channelsScreen">
         <div class="toolbar">
             <button onclick="goToDashboard()" tabindex="0">🏠 القوائم</button>
@@ -267,7 +260,6 @@
     </div>
 </div>
 
-<!-- مودال المشغلات (للهاتف فقط) -->
 <div class="modal-overlay" id="playerModal">
     <div class="modal-content" id="playerModalContent">
         <h3 style="color:var(--accent); text-align:center; margin-bottom:15px;">🎬 تشغيل خارجي</h3>
@@ -280,7 +272,6 @@
     </div>
 </div>
 
-<!-- مودال المساعدة -->
 <div class="modal-overlay" id="helpModal">
     <div class="modal-content" style="text-align:right; direction:rtl;">
         <h3 style="color:var(--accent); text-align:center; margin-bottom:15px;">❓ دليل الاستخدام السريع</h3>
@@ -307,7 +298,7 @@
     document.getElementById("modeLabel").textContent = isTVMode ? "تلفاز" : "هاتف";
 
     const presetSources = [
-    { id: 'bein+osn+ar', name: 'bein+osn+ar', url: 'https://raw.githubusercontent.com/kadri68/iptv/refs/heads/main/bein+osn+ar.m3u' },
+        { id: 'bein+osn+ar', name: 'bein+osn+ar', url: 'https://raw.githubusercontent.com/kadri68/iptv/refs/heads/main/bein+osn+ar.m3u' },
         { id: 'ishak', name: 'Ishak', url: 'https://raw.githubusercontent.com/kadri68/-/refs/heads/main/ishak.m3u' },
         { id: 'k2', name: 'قنوات مختارة', url: 'https://raw.githubusercontent.com/kadri68/-/refs/heads/main/k2.m3u' },
         { id: 'k3', name: 'عربية ورياضة وافلام', url: 'https://raw.githubusercontent.com/kadri68/-/refs/heads/main/k3.m3u' },
@@ -327,6 +318,17 @@
     let activePlaylistIndex = -1;
     let longPressTimer = null;
     let lastFocusedChannelIndex = -1;
+
+    // ---------- فحص تكرار القوائم ----------
+    function checkDuplicate(name, url) {
+        // إذا كان الرابط غير فارغ: نبحث عن قائمة بنفس الرابط
+        if (url && url.trim() !== "") {
+            return playlists.some(p => p.url === url);
+        } else {
+            // لا يوجد رابط: نبحث عن قائمة بنفس الاسم وبدون رابط
+            return playlists.some(p => p.name.trim().toLowerCase() === name.trim().toLowerCase() && (!p.url || p.url.trim() === ""));
+        }
+    }
 
     // تبديل الوضع
     function toggleDeviceMode() {
@@ -354,6 +356,10 @@
     async function loadPresetSource(id) {
         const src = presetSources.find(s => s.id === id);
         if (!src) return;
+        if (checkDuplicate(src.name, src.url)) {
+            alert("القائمة موجودة مسبقاً أو تم اختيارها!");
+            return;
+        }
         playlists.push({ name: src.name, url: src.url, content: null });
         localStorage.setItem("playlists", JSON.stringify(playlists));
         renderDashboard();
@@ -366,9 +372,19 @@
         if (!val) return;
         if (val.startsWith("http")) {
             const name = prompt("اسم القائمة:", "قائمة جديدة") || "قائمة جديدة";
+            if (checkDuplicate(name, val)) {
+                alert("القائمة موجودة مسبقاً أو تم اختيارها!");
+                return;
+            }
             playlists.push({ name, url: val, content: null });
         } else {
-            playlists.push({ name: val, url: "", content: null });
+            // اسم فقط بدون رابط
+            const name = val;
+            if (checkDuplicate(name, "")) {
+                alert("القائمة موجودة مسبقاً!");
+                return;
+            }
+            playlists.push({ name: name, url: "", content: null });
         }
         localStorage.setItem("playlists", JSON.stringify(playlists));
         renderDashboard();
@@ -387,7 +403,12 @@
         if (!file) return;
         const reader = new FileReader();
         reader.onload = (ev) => {
-            playlists.push({ name: file.name.replace(/\.[^/.]+$/, ""), url: "", content: ev.target.result });
+            const name = file.name.replace(/\.[^/.]+$/, "");
+            if (checkDuplicate(name, "")) {
+                alert("القائمة موجودة مسبقاً!");
+                return;
+            }
+            playlists.push({ name: name, url: "", content: ev.target.result });
             localStorage.setItem("playlists", JSON.stringify(playlists));
             renderDashboard();
             loadPlaylist(playlists.length - 1);
@@ -686,7 +707,6 @@
             }
             return;
         }
-        // التنقل الأفقي في الشريط العلوي
         if ((e.key === "ArrowRight" || e.key === "ArrowLeft") && (activeEl.closest(".toolbar") || activeEl.closest(".header-btns"))) {
             e.preventDefault();
             const direction = e.key === "ArrowRight" ? 1 : -1;
