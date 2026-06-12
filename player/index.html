@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>IPTV Finder Pro - TV Mode</title>
+    <title>IPTV Finder Pro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -42,10 +42,13 @@
             flex-shrink: 0;
         }
         header h1 { color: var(--accent); font-size: 22px; margin:0; text-shadow: 0 0 8px var(--accent); }
-        .header-btns { display: flex; gap: 8px; }
+        .header-btns { display: flex; gap: 6px; align-items: center; }
         .header-btn {
             background: rgba(255,255,255,0.1); border: 2px solid var(--border); color: white;
-            padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 16px; transition: 0.2s;
+            padding: 4px 10px; border-radius: 8px; cursor: pointer; font-size: 16px; transition: 0.2s;
+        }
+        #themeBtn {
+            font-size: 18px; padding: 4px 8px; min-width: 36px; text-align: center;
         }
         .header-btn:focus { background: var(--focus-glow); color: #000; box-shadow: 0 0 15px var(--focus-glow); outline: none; }
 
@@ -187,14 +190,41 @@
             border-top: 2px solid var(--border); font-size: 12px; color: #aaa; flex-shrink: 0;
         }
 
+        /* الوضع الفاتح */
         body.light-mode {
             --bg: #f5f7ff; --card: #ffffff; --header: #e0e5f0; --text: #0b0f1c;
             --border: #c0c5d0; --grad1: #e8ecf5; --grad2: #cfd5e8;
         }
+        /* تعديل ألوان النصوص في الوضع الفاتح */
+        body.light-mode .toolbar button,
+        body.light-mode .toolbar select,
+        body.light-mode .toolbar input,
+        body.light-mode .header-btn,
+        body.light-mode #newPlaylistUrl {
+            color: var(--text);
+        }
+        /* ضمان ظهور النص في العناصر المحددة */
+        body.light-mode .toolbar select option {
+            color: var(--text);
+            background: var(--card);
+        }
+
+        /* الوضع المتجاوب: هاتف */
         @media (max-width: 768px) {
             .tv-layout { flex-direction: column; }
-            .sidebar { width: 100%; max-height: 45vh; border-left: none; border-top: 2px solid var(--border); }
-            .video-area { border-left: none; }
+            .video-area {
+                flex: 1;
+                border-left: none;
+                order: 1;          /* الفيديو في الأعلى */
+                max-height: 45vh;  /* يحتفظ بمساحة معقولة للفيديو */
+            }
+            .sidebar {
+                width: 100%;
+                max-height: 55vh;  /* القائمة في الأسفل بمساحة أكبر */
+                border-left: none;
+                border-top: 2px solid var(--border);
+                order: 2;
+            }
             .toolbar { flex-wrap: wrap; }
         }
     </style>
@@ -202,29 +232,30 @@
 <body>
 
 <header>
-    <h1>📺 IPTV Pro | <span id="modeLabel">تلفاز</span></h1>
+    <h1>📺 IPTV Pro</h1>
     <div class="header-btns">
-        <button class="header-btn" id="switchModeBtn" onclick="toggleDeviceMode()">📱 ⇄ 📺</button>
         <button class="header-btn" id="themeBtn" onclick="toggleTheme()">🌓</button>
     </div>
 </header>
 
 <div style="flex:1; display:flex; flex-direction:column; overflow:hidden;">
+    <!-- شاشة المدير -->
     <div id="dashboardScreen">
         <div style="font-size:24px; color:var(--accent2); margin-bottom:15px;">📋 قوائم التشغيل المحفوظة</div>
         <div id="playlistsGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:15px;"></div>
         <div style="display:flex; gap:10px; margin-top:15px;">
-            <input type="text" id="newPlaylistUrl" placeholder="رابط M3U أو اسم للقائمة..." style="flex:1; padding:12px; background:var(--card); color:white; border:2px solid var(--border); border-radius:10px;">
+            <input type="text" id="newPlaylistUrl" placeholder="رابط M3U أو اسم للقائمة..." style="flex:1; padding:12px; background:var(--card); border:2px solid var(--border); border-radius:10px;">
             <button onclick="addNewPlaylist()" style="padding:12px 20px; background:var(--accent); color:#000; border:none; border-radius:10px; font-weight:bold;">➕ أضف قائمة</button>
             <button onclick="document.getElementById('dashboardFileInput').click()" style="padding:12px 20px; background:var(--card); color:white; border:2px solid var(--border); border-radius:10px;">📂 ملف</button>
         </div>
         <input type="file" id="dashboardFileInput" accept=".m3u,.m3u8" style="display:none;">
         <div style="margin-top:20px;">
-            <p style="color:var(--accent2);">اختر  قائمة تشغيل :</p>
+            <p style="color:var(--accent2);">مصادر جاهزة:</p>
             <div style="display:flex; gap:10px; flex-wrap:wrap;" id="presetSources"></div>
         </div>
     </div>
 
+    <!-- شاشة القنوات -->
     <div id="channelsScreen">
         <div class="toolbar">
             <button onclick="goToDashboard()" tabindex="0">🏠 القوائم</button>
@@ -260,6 +291,7 @@
     </div>
 </div>
 
+<!-- مودال المشغلات (للهاتف فقط) -->
 <div class="modal-overlay" id="playerModal">
     <div class="modal-content" id="playerModalContent">
         <h3 style="color:var(--accent); text-align:center; margin-bottom:15px;">🎬 تشغيل خارجي</h3>
@@ -272,6 +304,7 @@
     </div>
 </div>
 
+<!-- مودال المساعدة -->
 <div class="modal-overlay" id="helpModal">
     <div class="modal-content" style="text-align:right; direction:rtl;">
         <h3 style="color:var(--accent); text-align:center; margin-bottom:15px;">❓ دليل الاستخدام السريع</h3>
@@ -295,12 +328,10 @@
 <script>
     // ---- الإعدادات ----
     let isTVMode = localStorage.getItem("deviceMode") === "tv" || (window.innerWidth > 1024 && !localStorage.getItem("deviceMode"));
-    document.getElementById("modeLabel").textContent = isTVMode ? "تلفاز" : "هاتف";
 
     const presetSources = [
         { id: 'bein+osn+ar', name: 'bein+osn+ar', url: 'https://raw.githubusercontent.com/kadri68/iptv/refs/heads/main/bein+osn+ar.m3u' },
         { id: 'ishak', name: 'Ishak', url: 'https://raw.githubusercontent.com/kadri68/-/refs/heads/main/ishak.m3u' },
-        { id: 'World_Cup', name: 'World_Cup', url: 'https://raw.githubusercontent.com/kadri68/iptv/refs/heads/main/World_Cup.m3u' },
         { id: 'k2', name: 'قنوات مختارة', url: 'https://raw.githubusercontent.com/kadri68/-/refs/heads/main/k2.m3u' },
         { id: 'k3', name: 'عربية ورياضة وافلام', url: 'https://raw.githubusercontent.com/kadri68/-/refs/heads/main/k3.m3u' },
         { id: 'ara', name: 'عربية', url: 'https://iptv-org.github.io/iptv/languages/ara.m3u' },
@@ -322,21 +353,11 @@
 
     // ---------- فحص تكرار القوائم ----------
     function checkDuplicate(name, url) {
-        // إذا كان الرابط غير فارغ: نبحث عن قائمة بنفس الرابط
         if (url && url.trim() !== "") {
             return playlists.some(p => p.url === url);
         } else {
-            // لا يوجد رابط: نبحث عن قائمة بنفس الاسم وبدون رابط
             return playlists.some(p => p.name.trim().toLowerCase() === name.trim().toLowerCase() && (!p.url || p.url.trim() === ""));
         }
-    }
-
-    // تبديل الوضع
-    function toggleDeviceMode() {
-        isTVMode = !isTVMode;
-        localStorage.setItem("deviceMode", isTVMode ? "tv" : "phone");
-        document.getElementById("modeLabel").textContent = isTVMode ? "تلفاز" : "هاتف";
-        if (isTVMode) useExternalPlayer = true;
     }
 
     // ---- Dashboard ----
@@ -379,7 +400,6 @@
             }
             playlists.push({ name, url: val, content: null });
         } else {
-            // اسم فقط بدون رابط
             const name = val;
             if (checkDuplicate(name, "")) {
                 alert("القائمة موجودة مسبقاً!");
