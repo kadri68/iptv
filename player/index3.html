@@ -92,22 +92,6 @@
             min-width: 160px;
         }
 
-        /* أيقونات مضغوطة */
-        .icon-btn {
-            padding: 4px 6px !important;
-            font-size: 18px !important;
-            min-width: auto !important;
-            background: var(--bg) !important;
-            border: 2px solid var(--border) !important;
-            color: white !important;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        body.light-mode .icon-btn {
-            color: var(--text) !important;
-        }
-
         .tv-layout {
             display: flex;
             flex: 1;
@@ -211,6 +195,7 @@
             --bg: #f5f7ff; --card: #ffffff; --header: #e0e5f0; --text: #0b0f1c;
             --border: #c0c5d0; --grad1: #e8ecf5; --grad2: #cfd5e8;
         }
+        /* تعديل ألوان النصوص في الوضع الفاتح */
         body.light-mode .toolbar button,
         body.light-mode .toolbar select,
         body.light-mode .toolbar input,
@@ -218,6 +203,7 @@
         body.light-mode #newPlaylistUrl {
             color: var(--text);
         }
+        /* ضمان ظهور النص في العناصر المحددة */
         body.light-mode .toolbar select option {
             color: var(--text);
             background: var(--card);
@@ -229,12 +215,12 @@
             .video-area {
                 flex: 1;
                 border-left: none;
-                order: 1;
-                max-height: 45vh;
+                order: 1;          /* الفيديو في الأعلى */
+                max-height: 45vh;  /* يحتفظ بمساحة معقولة للفيديو */
             }
             .sidebar {
                 width: 100%;
-                max-height: 55vh;
+                max-height: 55vh;  /* القائمة في الأسفل بمساحة أكبر */
                 border-left: none;
                 border-top: 2px solid var(--border);
                 order: 2;
@@ -277,10 +263,10 @@
             <select id="categorySelect" tabindex="0" onchange="onCategoryChange()">
                 <option value="all">كل التصنيفات</option>
             </select>
-            <button onclick="showFavorites()" tabindex="0" title="المفضلة" class="icon-btn">⭐</button>
-            <button onclick="resetAndShowAll()" tabindex="0" title="عرض الكل" class="icon-btn">🔄</button>
-            <button onclick="showHistory()" tabindex="0" title="السجل" class="icon-btn">🕘</button>
-            <button onclick="showHelp()" tabindex="0" title="مساعدة" class="icon-btn">❓</button>
+            <button onclick="showFavorites()" tabindex="0">⭐ المفضلة</button>
+            <button onclick="resetAndShowAll()" tabindex="0">🔄 الكل</button>
+            <button onclick="showHistory()" tabindex="0">🕘 السجل</button>
+            <button onclick="showHelp()" tabindex="0" title="مساعدة">❓</button>
         </div>
         <div class="tv-layout">
             <div class="video-area">
