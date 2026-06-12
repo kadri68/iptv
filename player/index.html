@@ -250,7 +250,7 @@
         </div>
         <input type="file" id="dashboardFileInput" accept=".m3u,.m3u8" style="display:none;">
         <div style="margin-top:20px;">
-            <p style="color:var(--accent2);">مصادر جاهزة:</p>
+            <p style="color:var(--accent2);">اختر قائمة تشغيل:</p>
             <div style="display:flex; gap:10px; flex-wrap:wrap;" id="presetSources"></div>
         </div>
     </div>
@@ -330,7 +330,6 @@
     let isTVMode = localStorage.getItem("deviceMode") === "tv" || (window.innerWidth > 1024 && !localStorage.getItem("deviceMode"));
 
     const presetSources = [
-        { id: 'bein+osn+ar', name: 'bein+osn+ar', url: 'https://raw.githubusercontent.com/kadri68/iptv/refs/heads/main/bein+osn+ar.m3u' },
         { id: 'bein+osn+ar', name: 'bein+osn+ar', url: 'https://raw.githubusercontent.com/kadri68/iptv/refs/heads/main/bein+osn+ar.m3u' },
         { id: 'ishak', name: 'Ishak', url: 'https://raw.githubusercontent.com/kadri68/-/refs/heads/main/ishak.m3u' },
         { id: 'World_Cup', name: 'World_Cup', url: 'https://raw.githubusercontent.com/kadri68/iptv/refs/heads/main/World_Cup.m3u' },
